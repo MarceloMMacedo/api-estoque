@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="livrocaixa" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5fb2af20-ae46-4158-913c-baf9c0e98ef9">
+	<parameter name="heard" class="java.lang.String"/>
+	<parameter name="company" class="java.util.List"/>
+	<parameter name="PathMovimento" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="datainicio" class="java.util.Date">
+		<fieldDescription><![CDATA[datainicio]]></fieldDescription>
+	</field>
+	<field name="total" class="java.lang.Double">
+		<fieldDescription><![CDATA[total]]></fieldDescription>
+	</field>
+	<field name="datafim" class="java.util.Date">
+		<fieldDescription><![CDATA[datafim]]></fieldDescription>
+	</field>
+	<field name="movimentos" class="java.util.List">
+		<fieldDescription><![CDATA[movimentos]]></fieldDescription>
+	</field>
+	<field name="totaisEntrada" class="java.lang.Double">
+		<fieldDescription><![CDATA[totaisEntrada]]></fieldDescription>
+	</field>
+	<field name="totaisSaida" class="java.lang.Double">
+		<fieldDescription><![CDATA[totaisSaida]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="20" splitType="Stretch">
+			<subreport>
+				<reportElement x="4" y="6" width="375" height="14" uuid="d31367f7-5e2e-4f2d-8ac5-618010aa1eba"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{company})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{heard}]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<detail>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="5" width="130" height="20" uuid="f72c00de-3d39-4ea4-ab4d-994a49aaf6c2"/>
+				<text><![CDATA[Livro Caixa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="20" width="100" height="15" uuid="fc85a2d2-5f69-4295-a004-8053cafb0ac0"/>
+				<text><![CDATA[Data Inicio:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="35" width="100" height="15" uuid="3fa16bdf-ab27-4b6c-abc4-c2b293e4c25f"/>
+				<text><![CDATA[Data Fim:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="70" y="20" width="100" height="15" uuid="a79cf40d-86d7-4992-9ec6-ab3031962668"/>
+				<textFieldExpression><![CDATA[$F{datainicio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="35" width="100" height="15" uuid="f2b24026-cfd4-41a4-8991-8b28eb573cd6"/>
+				<textFieldExpression><![CDATA[$F{datafim}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="60" width="517" height="10" uuid="909b59f4-fe5c-407f-a793-e045a337b9cd"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{movimentos})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{PathMovimento}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<summary>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="19" width="65" height="15" uuid="36e072b7-5987-4541-860a-0c1fe7cf5ee3">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Resumo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="34" width="65" height="15" uuid="56fde969-f248-4dfe-ba17-f2339509a008">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Entradas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="49" width="65" height="15" uuid="1c00beba-32c4-4843-8b2f-73ba9cf6c318">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Saídas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="64" width="65" height="15" uuid="dd791239-0686-4618-afd0-b35ecf91892d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Faturamento]]></text>
+			</staticText>
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="85" y="64" width="130" height="15" uuid="1889fa72-f924-4b80-b11f-f1b082323f26"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{totaisEntrada}-$F{totaisSaida}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="85" y="19" width="75" height="15" uuid="75445c2f-c1f2-4f51-8513-231c28ee59c4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<leftPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+					<paragraph rightIndent="2"/>
+				</textElement>
+				<text><![CDATA[Totais
+]]></text>
+			</staticText>
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="85" y="49" width="75" height="15" uuid="3b672df6-55c9-43c8-9d6e-d7f73466a63b"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{totaisSaida}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="85" y="34" width="75" height="15" uuid="21029135-28ec-4b35-8ecb-835fdea4bf97">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<leftPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{totaisEntrada}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

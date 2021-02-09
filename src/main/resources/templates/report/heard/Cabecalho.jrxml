@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Cabecalho" pageWidth="555" pageHeight="802" whenNoDataType="BlankPage" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" whenResourceMissingType="Empty" uuid="7fca335d-a2e2-4dde-9219-2b10403b0117">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="company" class="br.com.apiestoque.domain.pessoas.Empresas"/>
+	<parameter name="Parameter2" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="atividade_principal" class="java.lang.String">
+		<fieldDescription><![CDATA[atividade_principal]]></fieldDescription>
+	</field>
+	<field name="zipCode" class="java.lang.String">
+		<fieldDescription><![CDATA[zipCode]]></fieldDescription>
+	</field>
+	<field name="telefone" class="java.lang.String">
+		<fieldDescription><![CDATA[telefone]]></fieldDescription>
+	</field>
+	<field name="tipo" class="java.lang.String">
+		<fieldDescription><![CDATA[tipo]]></fieldDescription>
+	</field>
+	<field name="code" class="java.lang.String">
+		<fieldDescription><![CDATA[code]]></fieldDescription>
+	</field>
+	<field name="city" class="java.lang.String">
+		<fieldDescription><![CDATA[city]]></fieldDescription>
+	</field>
+	<field name="contasBancarias" class="java.util.List">
+		<fieldDescription><![CDATA[contasBancarias]]></fieldDescription>
+	</field>
+	<field name="dataAdmissao" class="java.util.Date">
+		<fieldDescription><![CDATA[dataAdmissao]]></fieldDescription>
+	</field>
+	<field name="senha" class="java.lang.String">
+		<fieldDescription><![CDATA[senha]]></fieldDescription>
+	</field>
+	<field name="natureza_juridica" class="java.lang.String">
+		<fieldDescription><![CDATA[natureza_juridica]]></fieldDescription>
+	</field>
+	<field name="contatoPrincipal" class="br.com.apiestoque.domain.pessoas.ContacEmpresas">
+		<fieldDescription><![CDATA[contatoPrincipal]]></fieldDescription>
+	</field>
+	<field name="street" class="java.lang.String">
+		<fieldDescription><![CDATA[street]]></fieldDescription>
+	</field>
+	<field name="instantCreation" class="java.util.Date">
+		<fieldDescription><![CDATA[instantCreation]]></fieldDescription>
+	</field>
+	<field name="porte" class="java.lang.String">
+		<fieldDescription><![CDATA[porte]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="natureza" class="java.lang.String">
+		<fieldDescription><![CDATA[natureza]]></fieldDescription>
+	</field>
+	<field name="periodoFerias" class="java.lang.String">
+		<fieldDescription><![CDATA[periodoFerias]]></fieldDescription>
+	</field>
+	<field name="state" class="java.lang.String">
+		<fieldDescription><![CDATA[state]]></fieldDescription>
+	</field>
+	<field name="complement" class="java.lang.String">
+		<fieldDescription><![CDATA[complement]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[email]]></fieldDescription>
+	</field>
+	<field name="namewar" class="java.lang.String">
+		<fieldDescription><![CDATA[namewar]]></fieldDescription>
+	</field>
+	<field name="nameFantasia" class="java.lang.String">
+		<fieldDescription><![CDATA[nameFantasia]]></fieldDescription>
+	</field>
+	<field name="rolers" class="java.util.List">
+		<fieldDescription><![CDATA[rolers]]></fieldDescription>
+	</field>
+	<field name="data_situacao" class="java.lang.String">
+		<fieldDescription><![CDATA[data_situacao]]></fieldDescription>
+	</field>
+	<field name="carteiraprofissional" class="java.lang.String">
+		<fieldDescription><![CDATA[carteiraprofissional]]></fieldDescription>
+	</field>
+	<field name="contatos" class="java.util.List">
+		<fieldDescription><![CDATA[contatos]]></fieldDescription>
+	</field>
+	<field name="bairro" class="java.lang.String">
+		<fieldDescription><![CDATA[bairro]]></fieldDescription>
+	</field>
+	<field name="avatarView" class="java.lang.String">
+		<fieldDescription><![CDATA[avatarView]]></fieldDescription>
+	</field>
+	<field name="salario" class="java.lang.Double">
+		<fieldDescription><![CDATA[salario]]></fieldDescription>
+	</field>
+	<field name="nro" class="java.lang.String">
+		<fieldDescription><![CDATA[nro]]></fieldDescription>
+	</field>
+	<field name="avatar" class="java.lang.String">
+		<fieldDescription><![CDATA[avatar]]></fieldDescription>
+	</field>
+	<field name="telefones" class="java.util.List">
+		<fieldDescription><![CDATA[telefones]]></fieldDescription>
+	</field>
+	<field name="cpfOnCnpj" class="java.lang.String">
+		<fieldDescription><![CDATA[cpfOnCnpj]]></fieldDescription>
+	</field>
+	<field name="descricao" class="java.lang.String">
+		<fieldDescription><![CDATA[descricao]]></fieldDescription>
+	</field>
+	<field name="enderecoPrincipal" class="br.com.apiestoque.domain.pessoas.EnderecoEmpresas">
+		<fieldDescription><![CDATA[enderecoPrincipal]]></fieldDescription>
+	</field>
+	<field name="enderecos" class="java.util.List">
+		<fieldDescription><![CDATA[enderecos]]></fieldDescription>
+	</field>
+	<field name="rg" class="java.lang.String">
+		<fieldDescription><![CDATA[rg]]></fieldDescription>
+	</field>
+	<field name="capital_social" class="java.lang.String">
+		<fieldDescription><![CDATA[capital_social]]></fieldDescription>
+	</field>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[name]]></fieldDescription>
+	</field>
+	<field name="empresa" class="java.lang.String">
+		<fieldDescription><![CDATA[empresa]]></fieldDescription>
+	</field>
+	<field name="status" class="java.lang.String">
+		<fieldDescription><![CDATA[status]]></fieldDescription>
+	</field>
+	<field name="tipoSanguineo" class="java.lang.String">
+		<fieldDescription><![CDATA[tipoSanguineo]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="93">
+			<image hAlign="Center" vAlign="Middle" onErrorType="Blank">
+				<reportElement x="10" y="0" width="76" height="75" uuid="7a17eec3-7982-4c43-8bb9-8475d889ec90"/>
+				<imageExpression><![CDATA[$F{avatarView}]]></imageExpression>
+			</image>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="false">
+				<reportElement x="96" y="0" width="363" height="25" uuid="c2633916-0902-4147-8d05-93180b84ec05">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="419" y="26" width="10" height="15" uuid="44acaff7-5e72-496f-9c3c-0a7f24f6aa8c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Nº]]></text>
+			</staticText>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement x="96" y="26" width="323" height="15" uuid="937f53ec-54ef-4a72-92d2-540160cd2df8">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{enderecoPrincipal}.getStreet()]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement x="429" y="26" width="30" height="15" uuid="359c5f56-7044-436e-bc06-a304b4da2e1b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{enderecoPrincipal}.getNro()]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" pattern="" isBlankWhenNull="true">
+				<reportElement x="96" y="43" width="53" height="15" uuid="df34460e-0ba4-4fa5-b36d-76d14f0c37bf">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{enderecoPrincipal}.getZipCode()]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement x="149" y="43" width="80" height="15" uuid="d90f01bd-3503-45ee-b286-d2f78cdbdeff">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{enderecoPrincipal}.getBairro()]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement x="229" y="43" width="230" height="15" uuid="3fddce16-10a1-47d7-9e42-e27c87a35127">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{enderecoPrincipal}.getCity()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="94" y="61" width="29" height="15" uuid="9e9283de-dc2a-467f-a3d0-f67d946ba63e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[CNPJ:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="ElementGroupHeight" x="214" y="61" width="28" height="15" uuid="ec599d29-20d3-42a7-80bd-54025fc2914c">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Email:]]></text>
+			</staticText>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement x="244" y="61" width="218" height="15" uuid="b438e31a-e097-424a-bc3e-0b3df112fe56">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="79" width="551" height="1" uuid="dc2e1312-ca9b-4673-a0f7-da28f41e9cb8">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<textField>
+				<reportElement x="124" y="61" width="90" height="15" uuid="2e23d34f-4ef2-45d3-94ef-d117d41fd8d4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cpfOnCnpj}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
