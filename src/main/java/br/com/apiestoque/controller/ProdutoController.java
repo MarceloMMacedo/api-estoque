@@ -8,8 +8,11 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.apiestoque.domain.estoque.CategoriaProduto;
+import br.com.apiestoque.domain.estoque.Modelo;
 import br.com.apiestoque.domain.estoque.Produto;
 import br.com.apiestoque.dto.ProdutoDto;
 import br.com.apiestoque.mail.storage.EmailProperties;
@@ -48,6 +51,44 @@ public class ProdutoController extends ControllerImp<Produto> {
 	@RequestMapping(value = "/sendmail", method = RequestMethod.PUT)
 	public ResponseEntity<Void> sendmail(@RequestBody EmailProperties properties) {
 		service().sendemailreport(properties);
+		return ResponseEntity.noContent().build();
+	}
+	
+	@PreAuthorize("hasAnyRole('ROLE_ADMG' , 'ROLE_OPF' , 'ROLE_ADMEST'  )")
+	@RequestMapping(value = "/allmodelos", method = RequestMethod.GET)
+	public ResponseEntity<List<Modelo>> allmodelos() {
+		return ResponseEntity.ok(service.modelos());
+	}
+	 
+	@PreAuthorize("hasAnyRole('ROLE_ADMG' , 'ROLE_OPF' , 'ROLE_ADMEST'  )")
+	@RequestMapping(value = "/ismodelo", method = RequestMethod.GET)
+	public ResponseEntity<Boolean> ismodelo(@RequestParam(name ="value") String name) { 
+		return ResponseEntity.ok(service.ismodelo(name));
+	}
+	@PreAuthorize("hasAnyRole('ROLE_ADMG' , 'ROLE_OPF' , 'ROLE_ADMEST'  )")
+	@RequestMapping(value = "/insermodelo", method = RequestMethod.PUT)
+	public ResponseEntity<Void> insermodelo(@RequestBody Modelo modelo) {
+		service.insertmodelo(modelo);
+		return ResponseEntity.noContent().build();
+	}
+	
+	
+	//categoriPrduto
+	@PreAuthorize("hasAnyRole('ROLE_ADMG' , 'ROLE_OPF' , 'ROLE_ADMEST'  )")
+	@RequestMapping(value = "/allcategoriaprodutos", method = RequestMethod.GET)
+	public ResponseEntity<List<CategoriaProduto>> allcategoriaprodutos() {
+		return ResponseEntity.ok(service.allcategoriaprodutos());
+	}
+	 
+	@PreAuthorize("hasAnyRole('ROLE_ADMG' , 'ROLE_OPF' , 'ROLE_ADMEST'  )")
+	@RequestMapping(value = "/iscategoriaproduto", method = RequestMethod.GET)
+	public ResponseEntity<Boolean> iscategoriaproduto(@RequestParam(name ="value") String name) { 
+		return ResponseEntity.ok(service.ismodelo(name));
+	}
+	@PreAuthorize("hasAnyRole('ROLE_ADMG' , 'ROLE_OPF' , 'ROLE_ADMEST'  )")
+	@RequestMapping(value = "/insertcategoriaproduto", method = RequestMethod.PUT)
+	public ResponseEntity<Void> insertcategoriaproduto(@RequestBody CategoriaProduto modelo) {
+		service.insertcategoriaproduto(modelo);
 		return ResponseEntity.noContent().build();
 	}
 }

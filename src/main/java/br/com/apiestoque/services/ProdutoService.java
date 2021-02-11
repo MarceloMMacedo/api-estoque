@@ -141,6 +141,12 @@ public void sendemailreport(EmailProperties properties) {
 	public List<Modelo> modelos() {
 		return serviceModelo.findAll();
 	}
+	
+	public boolean ismodelo(String name) {
+		 List<Modelo> modelo=serviceModelo.findAllName(name);
+		 if(modelo.size()>0) return true;
+		return false;
+	}
 	/* Fim Modelos */
 
 	/* Categorias produto */
@@ -148,14 +154,18 @@ public void sendemailreport(EmailProperties properties) {
 	 * @param obj
 	 * @return new product category
 	 */
-	public CategoriaProduto insertCategoriaProduto(CategoriaProduto obj) {
+	public CategoriaProduto insertcategoriaproduto(CategoriaProduto obj) {
 		return sevicecategorio.insert(obj);
 	}
 
-	public List<CategoriaProduto> categoriaprodutos() {
+	public List<CategoriaProduto> allcategoriaprodutos() {
 		return sevicecategorio.findAll();
 	}
-
+	public boolean iscategoriaproduto(String name) {
+		 List<CategoriaProduto> modelo=sevicecategorio.findAllName(name);
+		 if(modelo.size()>0) return true;
+		return false;
+	}
 	/* fim Categorias produto */
 
 	/* FornecedorProduto */
