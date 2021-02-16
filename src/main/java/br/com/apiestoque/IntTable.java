@@ -17,18 +17,25 @@ import br.com.apiestoque.domain.financeiro.GrupoFinanceiroContrato;
 import br.com.apiestoque.domain.financeiro.HistoricoPadraoSaida;
 import br.com.apiestoque.domain.financeiro.contrato.Contrato;
 import br.com.apiestoque.domain.pessoas.Clientes;
+import br.com.apiestoque.domain.pessoas.ContacFornecedores;
 import br.com.apiestoque.domain.pessoas.ContacFuncionarios;
 import br.com.apiestoque.domain.pessoas.Empresas;
 import br.com.apiestoque.domain.pessoas.EnderecoClientes;
 import br.com.apiestoque.domain.pessoas.EnderecoEmpresas;
+import br.com.apiestoque.domain.pessoas.EnderecoFornecedores;
 import br.com.apiestoque.domain.pessoas.EnderecoFuncionarios;
+import br.com.apiestoque.domain.pessoas.Fornecedores;
 import br.com.apiestoque.domain.pessoas.Funcionarios;
 import br.com.apiestoque.enumerador.SimNaoEnum;
 import br.com.apiestoque.enumerador.StatusActiv;
+import br.com.apiestoque.enumerador.TipoFornecedorEnum;
 import br.com.apiestoque.enumerador.TipoPessoaEnum;
 import br.com.apiestoque.repository.CategoriaProdutoRepository;
+import br.com.apiestoque.repository.ContactFornecedoresRepository;
 import br.com.apiestoque.repository.ContactFuncionariosRepository;
 import br.com.apiestoque.repository.EmpresasRepository;
+import br.com.apiestoque.repository.EnderecoFornecedoresRepository;
+import br.com.apiestoque.repository.FornecedoresRepository;
 import br.com.apiestoque.repository.FuncionariosRepository;
 import br.com.apiestoque.repository.ModeloRepository;
 import br.com.apiestoque.repository.PatrimonioRepository;
@@ -99,7 +106,16 @@ public class IntTable {
 	
 	@Autowired
 	ContactFuncionariosRepository contactFuncionariosRepository;
- 
+	
+	@Autowired
+	FornecedoresRepository fornecedoresRepository;
+	
+	@Autowired
+	EnderecoFornecedoresRepository enderecoFornecedoresRepository  ;
+	
+	@Autowired
+	ContactFornecedoresRepository contactFornecedoresRepository  ;
+
 
 	public BCryptPasswordEncoder encoder() {
 		return new BCryptPasswordEncoder();
@@ -248,5 +264,30 @@ public class IntTable {
 		pat.setStatuslocacao(SimNaoEnum.Nao.getDescricao());
 		pat.setName("new Patrimonio");
 		patrimonioRepository.save(pat);
+		
+		
+		EnderecoFornecedores enf = new EnderecoFornecedores();
+		Fornecedores fo = new Fornecedores();
+		fo.setTipo(TipoPessoaEnum.Funcionario.getDescricao());
+		fo.setName("viva");
+		fo.setTipofornecedor(TipoFornecedorEnum.Produtos.getDescricao());
+		fo.setAvatar("HEx1DWBKyf.png");
+		fo.setEmpresa(e);  list = new LinkedList<String>(); 
+		fo.setEmail("marcelo_macedo01@hotmail.com");
+		fo.setStatus(StatusActiv.ATIVO.getDescricao());
+		fo.setSenha(encoder().encode("123456"));
+		fo = fornecedoresRepository.save(fo);
+		enf.setPessoas(fo);
+		enf = enderecoFornecedoresRepository.save(enf);
+		fo.setEnderecoPrincipal(enf);
+		fo = fornecedoresRepository.save(fo);
+		;
+		ContacFornecedores cfo=new ContacFornecedores();
+		cfo.setEmpresa(e);cfo.setPessoas(fo);
+		cfo.setEmail("marcelo_macedo01@hotmail.com");
+		cfo.setName("Marcelo M Macedo");
+		contactFornecedoresRepository.save(cfo);
+		fo.setContatoPrincipal(cfo);
+		fo = fornecedoresRepository.save(fo);
 	}
 }

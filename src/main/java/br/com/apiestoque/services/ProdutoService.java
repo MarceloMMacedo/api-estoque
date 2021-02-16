@@ -18,6 +18,7 @@ import br.com.apiestoque.domain.estoque.FornecedorProduto;
 import br.com.apiestoque.domain.estoque.Modelo;
 import br.com.apiestoque.domain.estoque.Produto;
 import br.com.apiestoque.domain.pessoas.ContacFuncionarios;
+import br.com.apiestoque.domain.pessoas.Fornecedores;
 import br.com.apiestoque.domain.pessoas.Funcionarios;
 import br.com.apiestoque.dto.BaseDto;
 import br.com.apiestoque.dto.ProdutoDto;
@@ -45,6 +46,10 @@ public class ProdutoService extends ServiceImpl<Produto> {
 	@Autowired
 	FornecedorProdutoService seviceFornecedorProduto;
 
+
+	@Autowired
+	FornecedoresService fornecedoresService;
+	
 	@Override
 	public JpaRepository<Produto, Integer> repo() {
 		return repo;
@@ -57,6 +62,8 @@ public class ProdutoService extends ServiceImpl<Produto> {
 	public String uploadProfilePicture(MultipartFile file, Integer id, String fieldname) {
 		return super.uploadProfilePicture(file, id, fieldname);
 	}
+
+	 
 
 	/**
 	 * @return list all products
@@ -118,14 +125,16 @@ public class ProdutoService extends ServiceImpl<Produto> {
 
 		return filesService.ViewPdf(parameters, getAllprodutos(), "produtos");
 	}
-@Override
-public void sendemailreport(EmailProperties properties) {
-	UserSS user = UserService.authenticated();
-	Map<String, Object> parameters = new HashMap<String, Object>();
-	properties.setFrom(user.getEmail());
-	String templates = "produtos";
-	htmlEmailService.sendemailreport(properties, templates, parameters,  getAllprodutos());
-}
+
+	@Override
+	public void sendemailreport(EmailProperties properties) {
+		UserSS user = UserService.authenticated();
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		properties.setFrom(user.getEmail());
+		String templates = "produtos";
+		htmlEmailService.sendemailreport(properties, templates, parameters, getAllprodutos());
+	}
+
 	/* modelos */
 	/**
 	 * @param obj
@@ -141,10 +150,11 @@ public void sendemailreport(EmailProperties properties) {
 	public List<Modelo> modelos() {
 		return serviceModelo.findAll();
 	}
-	
+
 	public boolean ismodelo(String name) {
-		 List<Modelo> modelo=serviceModelo.findAllName(name);
-		 if(modelo.size()>0) return true;
+		List<Modelo> modelo = serviceModelo.findAllName(name);
+		if (modelo.size() > 0)
+			return true;
 		return false;
 	}
 	/* Fim Modelos */
@@ -161,9 +171,11 @@ public void sendemailreport(EmailProperties properties) {
 	public List<CategoriaProduto> allcategoriaprodutos() {
 		return sevicecategorio.findAll();
 	}
+
 	public boolean iscategoriaproduto(String name) {
-		 List<CategoriaProduto> modelo=sevicecategorio.findAllName(name);
-		 if(modelo.size()>0) return true;
+		List<CategoriaProduto> modelo = sevicecategorio.findAllName(name);
+		if (modelo.size() > 0)
+			return true;
 		return false;
 	}
 	/* fim Categorias produto */
@@ -173,7 +185,7 @@ public void sendemailreport(EmailProperties properties) {
 	 * @param obj
 	 * @return new provider of product
 	 */
-	public FornecedorProduto insertFornecedorProduto(FornecedorProduto obj) {
+	public FornecedorProduto insertFornecedorProduto(FornecedorProduto obj  ) {
 		return seviceFornecedorProduto.insert(obj);
 	}
 
@@ -188,10 +200,17 @@ public void sendemailreport(EmailProperties properties) {
 	/**
 	 * @return list of providers of product
 	 */
-	public List<FornecedorProduto> fornecedorprodutos() {
-		return seviceFornecedorProduto.findAll();
-
+	public List<BaseDto> fornecedores() {
+		return fornecedoresService.findBaseAll();
 	}
-	/* the end FornecedorProduto */ 
+	
+	/**
+	 * @param fornecedorProduto
+	 * @return
+	 */
+	public FornecedorProduto update(FornecedorProduto fornecedorProduto ) {
+		return seviceFornecedorProduto.update(fornecedorProduto);
+	}
+	/* the end FornecedorProduto */
 
 }

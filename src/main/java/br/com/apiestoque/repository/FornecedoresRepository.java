@@ -19,4 +19,7 @@ public interface FornecedoresRepository extends JpaRepository<Fornecedores, Inte
 	
 	@Transactional(readOnly=true)
 	List<Fornecedores> findAllByEmpresaId(Integer id);
+	
+	@Transactional(readOnly=true)
+	List<Fornecedores> findAllByTipofornecedor(String tipofornecedor);
 }

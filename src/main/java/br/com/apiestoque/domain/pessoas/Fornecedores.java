@@ -31,11 +31,14 @@ import br.com.apiestoque.converters.FuncaoConverter;
 import br.com.apiestoque.converters.NatureaPessoaConverter;
 import br.com.apiestoque.converters.PerfilConverter;
 import br.com.apiestoque.converters.StatusConverter;
+import br.com.apiestoque.converters.TipoFornecedorConverter;
 import br.com.apiestoque.converters.TipoPessoaConverter;
 import br.com.apiestoque.domain.intefaces.BaseEntity;
 import br.com.apiestoque.domain.intefaces.PessoaBaseInterface;
+import lombok.Data;
 
 @Entity
+@Data
 public class Fornecedores implements BaseEntity, Serializable , PessoaBaseInterface<ContacFornecedores, EnderecoFornecedores> {
 
 	 
@@ -95,6 +98,9 @@ public class Fornecedores implements BaseEntity, Serializable , PessoaBaseInterf
 
 	private String data_situacao;
 
+	@Convert(converter = TipoFornecedorConverter.class)
+	private String tipofornecedor; 
+	
 	@Convert(converter = TipoPessoaConverter.class)
 	private String tipo;
 

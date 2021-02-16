@@ -2,6 +2,7 @@ package br.com.apiestoque.dto;
 
 import java.io.Serializable;
 
+import br.com.apiestoque.domain.pessoas.Fornecedores;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -30,6 +31,16 @@ public class BaseDto implements     Serializable {
 	private  double saldo;
 	private String status;
  
+	public BaseDto(Fornecedores f) {
+		super();
+		this.id = f.getId();
+		this.name = f.getName();
+		this.cpfOnCnpj = f.getCpfOnCnpj();
+		this.avatar = f.getAvatar();
+		this.avatarView = f.getAvatarView();
+
+		this.email = f.getEmail();
+	}
 	public BaseDto(Integer id, String name, String cpfOnCnpj, String avatar, String avatarView, String email) {
 		super();
 		this.id = id;
